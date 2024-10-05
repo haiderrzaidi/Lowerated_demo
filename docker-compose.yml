@@ -1,0 +1,16 @@
+# version: "3.7"
+
+# services:
+#   python-app:
+#     build:
+#       context: ./backend
+#     container_name: python-app
+#     ports:
+#       - "5000:5000" # Change this to the port your Python app runs on
+
+#   node-app:
+#     build:
+#       context: ./
+#     container_name: node-app
+#     ports:
+#       - "3000:3000" # Change this to the port your Node.js app runs on
