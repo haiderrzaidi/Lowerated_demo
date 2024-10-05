@@ -1,14 +1,20 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import { useUser } from "@clerk/nextjs";
 
-const Sidebar = ({ isCollapsed, toggleSidebar }) => {
+// Define props type
+interface SidebarProps {
+  isCollapsed: boolean;
+  toggleSidebar: () => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, toggleSidebar }) => {
   const [isExpanded, setExpanded] = useState(false);
   const { user } = useUser();
   const clerkId = user?.id;
 
   const toggleExpand = () => setExpanded(!isExpanded);
 
-  const renderConversationItem = (conv, index) => (
+  const renderConversationItem = (conv: string, index: number) => (
     <li
       key={index}
       className="p-2 rounded-md hover:bg-[#1e1e1e] cursor-pointer"

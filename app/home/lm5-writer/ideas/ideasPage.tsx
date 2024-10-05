@@ -1,14 +1,14 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { sendMessageToAPI } from "../../../../api/lm5-writer/ideas/new/route";
 import { useUser } from "@clerk/nextjs";
 import { useConversation } from "./ConversationContext";
 
-const IdeasPage = () => {
-  const [textValue, setTextValue] = useState("");
-  const [chatHistory, setChatHistory] = useState([]);
-  const textareaRef = useRef(null);
-  const chatContainerRef = useRef(null);
+const IdeasPage: React.FC = () => {
+  const [textValue, setTextValue] = useState<string>("");
+  const [chatHistory, setChatHistory] = useState<{ type: string; text: string }[]>([]);
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const chatContainerRef = useRef<HTMLDivElement | null>(null);
   const { isLoaded, user } = useUser();
   const { selectedConversationId, isDraftGenerating, setIsDraftGenerating } = useConversation();
 
@@ -25,11 +25,11 @@ const IdeasPage = () => {
     }
   }, [chatHistory]);
 
-  const handleTextChange = (e) => {
+  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextValue(e.target.value);
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
@@ -63,7 +63,7 @@ const IdeasPage = () => {
     setTextValue("");
   };
 
-  const formatMessageText = (text) => {
+  const formatMessageText = (text: string) => {
     return text.split("\n").map((line, index) => (
       <p key={index}>
         {line}
@@ -121,7 +121,7 @@ const IdeasPage = () => {
                 onKeyDown={handleKeyDown}
                 placeholder="Type your message..."
                 className="flex-grow py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600 resize-none overflow-y-auto max-h-32 w-full rounded-lg"
-                rows="1"
+                rows={1}
               />
               <button
                 onClick={handleSendMessage}
