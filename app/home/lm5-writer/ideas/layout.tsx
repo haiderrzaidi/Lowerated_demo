@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState, ReactNode } from "react";
-import Sidebar from "./ideasSidebar";
+import React, { ReactNode } from "react";
 import { ConversationProvider } from "./ConversationContext";
 
 interface IdeasLayoutProps {
@@ -9,26 +8,12 @@ interface IdeasLayoutProps {
 }
 
 const IdeasLayout: React.FC<IdeasLayoutProps> = ({ children }) => {
-  const [isSidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
-
-  const toggleSidebar = () => {
-    setSidebarCollapsed(!isSidebarCollapsed);
-  };
-
   return (
     <ConversationProvider>
-      <div className="flex h-screen">
-        <main
-          className={`flex-1 bg-gray-100 transition-all duration-300 ${
-            isSidebarCollapsed ? "mr-16" : "mr-64"
-          }`}
-        >
+      <div className="flex h-screen bg-white-100">
+        <main className="flex-1 bg-white-100">
           {children}
         </main>
-        <Sidebar
-          isCollapsed={isSidebarCollapsed}
-          toggleSidebar={toggleSidebar}
-        />
       </div>
     </ConversationProvider>
   );

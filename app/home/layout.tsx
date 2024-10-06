@@ -1,3 +1,4 @@
+// Lowerated_Demo/app/home/layout.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -74,7 +75,7 @@ const ProtectedLayout: React.FC<ProtectedLayoutProps> = ({
         }`}
       >
         <Header isCollapsed={isSidebarCollapsed} />
-        <main className="bg-gray-100 flex-1 transition-all duration-300">
+        <main className="bg-white-100 flex-1 transition-all duration-300">
           <div className={`${layoutType}`}>{children}</div>
         </main>
       </div>

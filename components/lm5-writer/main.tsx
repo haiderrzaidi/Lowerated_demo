@@ -13,16 +13,12 @@ interface ToolCardProps {
 }
 
 const Main: NextPage = () => {
-  const { isLoaded, isSignedIn, user } = useUser();
-
-  if (!isLoaded || !isSignedIn || !user) {
-    return null;
-  }
+  const { user } = useUser();  // Removed loading and signed-in checks
 
   return (
     <div className="p-4 pt-24">
       {/* Welcome Message */}
-      <h1 className="text-2xl font-bold mb-2">Hello, {user.firstName}</h1>
+      <h1 className="text-2xl font-bold mb-2">Hello, {user?.firstName}</h1>
       <p className="text-gray-600 mb-6">
         Which tool would you like to use today?
       </p>
