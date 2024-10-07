@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/home/lm5-writer/ideas/ideasPage.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/home/lm5-writer/ideas/ideasPage.tsx", "pages/api/saveMessage.js"],
   "exclude": ["node_modules"]
 }

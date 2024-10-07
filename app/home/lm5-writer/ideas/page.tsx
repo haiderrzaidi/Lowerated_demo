@@ -20,7 +20,7 @@ const Page: NextPage = () => {
 
   if (!isLoaded || !userId) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-white-100">
+      <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <Player
           src="./lottie/reel_loader.json"
           className="player"
@@ -33,7 +33,7 @@ const Page: NextPage = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center bg-white-100">
+    <div className="flex flex-col items-center justify-center bg-gray-100">
       <IdeasPage 
       // selectedConversationId={id}
       />
