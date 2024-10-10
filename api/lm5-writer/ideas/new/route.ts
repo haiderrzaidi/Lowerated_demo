@@ -3,7 +3,7 @@ import axios from 'axios';
 export const sendMessageToAPI = async (message: string, history: Array<{ type: string; text: string }>): Promise<string> => {
   try {
     // console.log("History: ", history);    
-    const response = await axios.post('https://539c-13-60-20-160.ngrok-free.app/chat', {
+    const response = await axios.post('https://www.lowerated.xyz/chat', {
       message,
       history,  // Pass history as an arrayd
     });
